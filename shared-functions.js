@@ -1,12 +1,3 @@
-/**
- * Shared Database Functions
- * Used by both login.html and index.html
- * 
- * Include this file in both HTML files using:
- * <script src="shared-functions.js"></script>
- */
-
-// Save email variation to Supabase
 async function saveEmailVariation(email) {
   try {
     const userId = sessionStorage.getItem('userId');
@@ -21,7 +12,6 @@ async function saveEmailVariation(email) {
       return false;
     }
 
-    // Validate that userId is a valid UUID format
     const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
     if (!uuidRegex.test(userId)) {
       console.error('Invalid userId format:', userId);
@@ -66,7 +56,6 @@ async function saveEmailVariation(email) {
   }
 }
 
-// Fetch user's saved emails from Supabase
 async function fetchSavedEmails() {
   try {
     const userId = sessionStorage.getItem('userId');
@@ -94,7 +83,6 @@ async function fetchSavedEmails() {
   }
 }
 
-// Delete saved email from Supabase
 async function deleteSavedEmail(emailId) {
   try {
     const { error } = await supabase
@@ -114,7 +102,6 @@ async function deleteSavedEmail(emailId) {
   }
 }
 
-// Update user profile
 async function updateUserProfile(updates) {
   try {
     const userId = sessionStorage.getItem('userId');
@@ -143,7 +130,6 @@ async function updateUserProfile(updates) {
   }
 }
 
-// Load saved emails count from Supabase
 async function loadSavedEmailsCount() {
   try {
     const userId = sessionStorage.getItem('userId');
